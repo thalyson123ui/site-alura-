@@ -22,8 +22,9 @@ body {
 
 .principal {
     background-image: url(img/Background.png);
-    background-size: contain;
     background-repeat: no-repeat;
+    background-size: contain;
+    align-items: center;
 }
 
 .container {
@@ -39,6 +40,7 @@ body {
     color: var(--branco-principal);
     display: block;
     text-decoration: none;
+    margin-bottom: 1em;
 }
 
 .botao_secundario {
@@ -54,4 +56,74 @@ body {
 .container__titulo {
     font-size: 28px;
     font-weight: 700;
+}
+
+.container__imagem {
+    margin: 1em 0 2em 0;
+}
+
+.container__caixa {
+    margin: 0.6em;
+}
+
+.secundario__imagem {
+    width: 80%;
+}
+
+.secundario {
+    align-items: center;
+    margin: 0, 10em;
+}
+
+.descriçao__titulo {
+    font-weight: 700;
+    font-size: 48px;
+    color: var(--branco-principal);
+    margin-bottom: 0.1em;
+}
+
+.descriçao__texto {
+    font-size: 24px;
+    color: var(--branco-secundario);
+}
+
+.secundario__botao {
+    display: inline-block;
+    margin-top: 1em;
+}
+
+.container__descriçao {
+    padding: 3em;
+}
+
+.download {
+    padding: 5em 10%; /* Espaçamento interno para a seção */
+}
+
+.download__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* Espaço entre a imagem e o texto */
+}
+
+.download__imagem {
+    width: 50%; /* Ajusta o tamanho da imagem proporcionalmente */
+    max-width: 600px;
+}
+
+.download__conteudo {
+    width: 40%;
+}
+
+.download__titulo {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.download__texto {
+    font-size: 18px;
+    color: #A9A9A9; /* Um tom de cinza para o texto secundário */
+    line-height: 1.5;
 }
