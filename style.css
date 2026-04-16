@@ -124,6 +124,6 @@ body {
 
 .download__texto {
     font-size: 18px;
-    color: #A9A9A9; /* Um tom de cinza para o texto secundário */
+    color: var(--cinza-secundario);
     line-height: 1.5;
 }
