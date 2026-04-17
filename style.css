@@ -154,3 +154,50 @@ body {
         flex-direction: column; /* Lista vertical no celular */
     }
 }
+
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+/* Tablet (Telas até 1024px) */
+@media screen and (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr; /* Muda de 2 colunas para 1 */
+        height: auto;
+        padding: 2em;
+    }
+
+    .descriçao__titulo, .download__titulo {
+        font-size: 32px; /* Diminui títulos muito grandes */
+    }
+}
+
+/* Celular (Telas até 768px) */
+@media screen and (max-width: 768px) {
+    .principal {
+        background-size: cover; /* Ajusta o fundo para preencher melhor */
+    }
+
+    .dispositivos__lista {
+        flex-direction: column; /* Itens da lista um embaixo do outro */
+        gap: 3em;
+    }
+
+    .container__caixa {
+        margin: 1em;
+    }
+
+    .rodape__lista {
+        flex-direction: column;
+        align-items: center;
+    }
+}
