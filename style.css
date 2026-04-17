@@ -3,44 +3,77 @@
     --cinza-secundario: #C0C0C0;
     --botao-azul: #167bf7;
     --cor-de-fundo: #00030c;
-    --fonte-principal: 'Inter';
-}
-
-body {
-    background-color: var(--cor-de-fundo);
-    color: var(--branco-principal);
-    font-family: Arial, Helvetica, sans-serif;
-    font: var(--fonte-principal);
-    font-size: 16px;
-    font-weight: 400;
+    --fonte-principal: 'Inter', sans-serif;
+    --botao-azul-efeito: #0f5bb5;
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Garante que padding não aumente o tamanho do elemento */
 }
 
+body {
+    background-color: var(--cor-de-fundo);
+    color: var(--branco-principal);
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    line-height: 1.6; /* Melhora a leitura dos textos */
+}
+
+/* --- Container Principal --- */
 .principal {
-    background-image: url(img/Background.png);
+    background-image: url("img/Background.png");
     background-repeat: no-repeat;
     background-size: contain;
-    align-items: center;
+    background-position: center; /* Centraliza a imagem de fundo */
 }
 
 .container {
     height: 100vh;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr; /* 1fr divide o espaço igualmente */
+    align-items: center;
+    justify-items: center;
 }
 
+.container__caixa {
+    margin: 2em;
+    text-align: center; /* Centraliza o conteúdo da primeira dobra */
+}
+
+/* --- Tipografia --- */
+.container__titulo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.descriçao__titulo {
+    font-weight: 700;
+    font-size: 48px;
+    margin-bottom: 0.5rem;
+}
+
+.descriçao__texto {
+    font-size: 18px; /* Reduzi um pouco para não brigar com o título */
+    color: var(--cinza-secundario);
+}
+
+/* --- Botões --- */
 .container__botao {
     background-color: var(--botao-azul);
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 1em;
     color: var(--branco-principal);
     display: block;
     text-decoration: none;
     margin-bottom: 1em;
+    transition: background-color 0.3s, transform 0.2s; /* Efeito suave */
+}
+
+.container__botao:hover {
+    background-color: var(--botao-azul-efeito);
+    transform: scale(1.02); /* Leve aumento ao passar o mouse */
 }
 
 .botao_secundario {
@@ -48,82 +81,76 @@ body {
     border: 2px solid var(--branco-principal);
 }
 
-.container__aviso {
-    color: var(--cinza-secundario);
-    font-size: 12px;
-}
-
-.container__titulo {
-    font-size: 28px;
-    font-weight: 700;
-}
-
-.container__imagem {
-    margin: 1em 0 2em 0;
-}
-
-.container__caixa {
-    margin: 0.6em;
+/* --- Seções Secundárias --- */
+.secundario {
+    align-items: center;
+    padding: 0 5%; /* Substitui a margem fixa para ser mais responsivo */
 }
 
 .secundario__imagem {
-    width: 80%;
+    width: 100%;
+    max-width: 600px; /* Evita que a imagem fique gigante em telas 4k */
 }
 
-.secundario {
-    align-items: center;
-    margin: 0, 10em;
+/* --- Dispositivos --- */
+.dispositivos {
+    text-align: center;
+    padding: 5em 0;
 }
 
-.descriçao__titulo {
-    font-weight: 700;
-    font-size: 48px;
-    color: var(--branco-principal);
-    margin-bottom: 0.1em;
+.dispositivos__lista {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2em; /* Espaçamento moderno entre itens */
+    margin-top: 3em;
 }
 
-.descriçao__texto {
+.lista__item {
     font-size: 24px;
-    color: var(--branco-secundario);
-}
-
-.secundario__botao {
-    display: inline-block;
     margin-top: 1em;
 }
 
-.container__descriçao {
-    padding: 3em;
+/* --- Rodapé --- */
+.rodape {
+    text-align: center;
+    padding: 3em 0;
 }
 
-.download {
-    padding: 5em 10%; /* Espaçamento interno para a seção */
-}
-
-.download__container {
+.rodape__lista {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 50px; /* Espaço entre a imagem e o texto */
+    list-style: none;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    gap: 1.5em;
+    margin: 2em 0;
 }
 
-.download__imagem {
-    width: 50%; /* Ajusta o tamanho da imagem proporcionalmente */
-    max-width: 600px;
+.lista__link a {
+    color: var(--branco-principal);
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
-.download__conteudo {
-    width: 40%;
+.lista__link a:hover {
+    color: var(--botao-azul);
 }
 
-.download__titulo {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 1rem;
-}
-
-.download__texto {
-    font-size: 18px;
+.rodape__texto {
+    font-size: 14px;
     color: var(--cinza-secundario);
-    line-height: 1.5;
+    margin: 1em 15%; /* Dá um respiro nas laterais do texto legal */
+}
+
+/* --- Responsividade Básica (Dica de Ouro) --- */
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Empilha as colunas no celular */
+        height: auto;
+        padding: 2em 1em;
+    }
+    
+    .dispositivos__lista {
+        flex-direction: column; /* Lista vertical no celular */
+    }
 }
